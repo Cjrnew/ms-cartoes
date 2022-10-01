@@ -23,8 +23,8 @@ public class Card {
 
     public Card(String name,
                 CardFlag flag,
-                  BigDecimal income,
-                  BigDecimal baseLimit) {
+                BigDecimal income,
+                BigDecimal baseLimit) {
         this.name = name;
         this.flag = flag;
         this.income = income;

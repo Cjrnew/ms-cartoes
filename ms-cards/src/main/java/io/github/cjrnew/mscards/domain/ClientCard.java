@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "CLIENT_CARD")
 public class ClientCard {
 
     @Id
@@ -16,7 +17,7 @@ public class ClientCard {
     private Long id;
     private String cpf;
     @ManyToOne
-    @JoinColumn(name = "id_card")
+    @JoinColumn(name="id_card")
     private Card card;
-    private BigDecimal limit;
+    private BigDecimal baseLimit;
 }

@@ -3,8 +3,7 @@ package io.github.cjrnew.mscards.controller;
 import io.github.cjrnew.mscards.domain.Card;
 import io.github.cjrnew.mscards.domain.ClientCard;
 import io.github.cjrnew.mscards.domain.dto.CardDTO;
-import io.github.cjrnew.mscards.domain.dto.CardsForClientsResponseDTO;
-import io.github.cjrnew.mscards.repository.ClientCardRepository;
+import io.github.cjrnew.mscards.domain.CardsForClientsResponse;
 import io.github.cjrnew.mscards.service.CardService;
 import io.github.cjrnew.mscards.service.ClientCardService;
 import lombok.RequiredArgsConstructor;
@@ -42,11 +41,11 @@ public class CardController {
     }
 
     @GetMapping(params = "cpf")
-    public ResponseEntity<List<CardsForClientsResponseDTO>> getCardsByClient(
+    public ResponseEntity<List<CardsForClientsResponse>> getCardsByClient(
             @RequestParam("cpf") String cpf){
         List<ClientCard> lista = clientCardService.listCardsByCpf(cpf);
-        List<CardsForClientsResponseDTO> resultList = lista.stream()
-                .map(CardsForClientsResponseDTO::fromModel)
+        List<CardsForClientsResponse> resultList = lista.stream()
+                .map(CardsForClientsResponse::fromModel)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(resultList);
     }

@@ -12,9 +12,9 @@ public class CardDTO {
     private String name;
     private CardFlag flag;
     private BigDecimal income;
-    private BigDecimal limit;
+    private BigDecimal baseLimit;
 
     public Card toModel(){
-        return new Card(name, flag, income, limit );
+        return new Card(name, flag, income, baseLimit );
     }
 }
